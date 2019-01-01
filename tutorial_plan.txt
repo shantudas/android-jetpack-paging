@@ -1,0 +1,5 @@
+1. Install Android Studio
+2. About android studio IDE
+3. Build your First App
+4. Run your app with imulator and physical device
+5. Working with xml layout file
