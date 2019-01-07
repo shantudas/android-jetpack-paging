@@ -13,6 +13,8 @@ import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activit
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.network.RetrofitRequest;
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.response.ArticleResponse;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView my_recycler_view;
     private LinearLayoutManager layoutManager;
     private MoviesAdapter adapter;
+    private ArrayList<Article> articleArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +41,32 @@ public class MainActivity extends AppCompatActivity {
         initialization();
 
         ApiRequest apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+
+
         Call<ArticleResponse> call = apiRequest.getMovieArticles("movies", "079dac74a5f94ebdb990ecf61c8854b7");
         call.enqueue(new Callback<ArticleResponse>() {
             @Override
             public void onResponse(Call<ArticleResponse> call, Response<ArticleResponse> response) {
 
                 Log.d(TAG, "onResponse response:: " + response);
+
+                if (response.body() != null) {
+
+                    articleArrayList = new ArrayList<>(response.body().getArticles());
+
+                    Log.d(TAG, "articles status:: " + response.body().getStatus());
+                    if (response.body().getStatus().equals("ok")){
+
+                        // specify an adapter
+                        adapter = new MoviesAdapter(MainActivity.this, articleArrayList);
+                        my_recycler_view.setAdapter(adapter);
+                    }
+
+
+                    Log.d(TAG, "articles total result:: " + response.body().getTotalResults());
+                    Log.d(TAG, "articles size:: " + response.body().getArticles().size());
+                    Log.d(TAG, "articles title pos 0:: " + response.body().getArticles().get(0).getTitle());
+                }
 
             }
 
@@ -53,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
     }
 
     /**
@@ -72,9 +94,6 @@ public class MainActivity extends AppCompatActivity {
         // in content do not change the layout size of the RecyclerView
         my_recycler_view.setHasFixedSize(true);
 
-        // specify an adapter
-        adapter = new MoviesAdapter(MainActivity.this);
-        my_recycler_view.setAdapter(adapter);
 
     }
 }
