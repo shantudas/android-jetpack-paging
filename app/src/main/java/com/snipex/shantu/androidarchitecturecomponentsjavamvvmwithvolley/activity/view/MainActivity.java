@@ -29,10 +29,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         /*
          * Resources :: for help to create this project
-         * https://medium.com/@amtechnovation/android-architecture-component-mvvm-part-1-a2e7cff07a76
-         * */
+         *
+         * Source-1             ::  https://medium.com/@amtechnovation/android-architecture-component-mvvm-part-1-a2e7cff07a76
+         * source description   ::  for MVVM pattern using  live data and view model by help of retrofit
+         *
+         * Source -2            ::  https://proandroiddev.com/8-steps-to-implement-paging-library-in-android-d02500f7fffe
+         * source description   ::  for paging
+         *
+         *  */
+
 
         initialization();
 
