@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.adapter;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.adapter;
 
 import android.arch.paging.PagedListAdapter;
 import android.content.Context;
@@ -13,8 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.R;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.R;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.model.Article;
 
 public class MovieAdapter extends PagedListAdapter<Article, MovieAdapter.ViewHolder> {
 

@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.model;
 
 public class Article {
 

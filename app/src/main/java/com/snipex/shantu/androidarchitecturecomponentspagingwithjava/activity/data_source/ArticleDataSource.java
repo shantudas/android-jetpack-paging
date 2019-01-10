@@ -1,13 +1,13 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.data_source;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.data_source;
 
 import android.arch.paging.PageKeyedDataSource;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.constants.ArticleMovieConstants;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.network.RetrofitRequest;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.response.ArticleResponse;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.constants.ArticleMovieConstants;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.model.Article;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.network.RetrofitRequest;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.response.ArticleResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,10 +1,10 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.data_source;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.data_source;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.paging.DataSource;
 import android.arch.paging.PageKeyedDataSource;
 
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.model.Article;
 
 public class ArticleDataSourceFactory extends DataSource.Factory {
 

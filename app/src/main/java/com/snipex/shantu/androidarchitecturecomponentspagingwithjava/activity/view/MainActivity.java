@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.view;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.view;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.R;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.adapter.MovieAdapter;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.view_model.ArticleViewModel;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.R;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.adapter.MovieAdapter;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.view_model.ArticleViewModel;
 
 public class MainActivity extends AppCompatActivity {
 

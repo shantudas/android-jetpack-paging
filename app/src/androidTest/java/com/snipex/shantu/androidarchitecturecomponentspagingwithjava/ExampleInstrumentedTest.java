@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

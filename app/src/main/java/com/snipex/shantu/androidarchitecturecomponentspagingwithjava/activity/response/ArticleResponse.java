@@ -1,8 +1,8 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.response;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.model.Article;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.view_model;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.view_model;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
@@ -7,9 +7,9 @@ import android.arch.paging.PageKeyedDataSource;
 import android.arch.paging.PagedList;
 import android.util.Log;
 
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.constants.ArticleMovieConstants;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.data_source.ArticleDataSourceFactory;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.constants.ArticleMovieConstants;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.data_source.ArticleDataSourceFactory;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.model.Article;
 
 public class ArticleViewModel extends ViewModel {
 

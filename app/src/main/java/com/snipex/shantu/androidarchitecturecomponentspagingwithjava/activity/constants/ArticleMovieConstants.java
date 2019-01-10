@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.constants;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.constants;
 
 public class ArticleMovieConstants {
 

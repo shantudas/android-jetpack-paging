@@ -1,6 +1,6 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.network;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.network;
 
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.response.ArticleResponse;
+import com.snipex.shantu.androidarchitecturecomponentspagingwithjava.activity.response.ArticleResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

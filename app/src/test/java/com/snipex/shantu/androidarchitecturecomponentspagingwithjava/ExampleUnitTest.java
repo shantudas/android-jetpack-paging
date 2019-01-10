@@ -1,4 +1,4 @@
-package com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley;
+package com.snipex.shantu.androidarchitecturecomponentspagingwithjava;
 
 import org.junit.Test;
 
