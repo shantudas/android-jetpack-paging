@@ -6,23 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.R;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.adapter.MoviesAdapter;
+import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.adapter.MovieAdapter;
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.view_model.ArticleViewModel;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView my_recycler_view;
     private LinearLayoutManager layoutManager;
-    private MoviesAdapter adapter;
+    private MovieAdapter adapter;
     private ArrayList<Article> articleArrayList = new ArrayList<>();
     ArticleViewModel articleViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
          * Source -2            ::  https://proandroiddev.com/8-steps-to-implement-paging-library-in-android-d02500f7fffe
          * source description   ::  for paging
          *
+         * Source -3            :: https://proandroiddev.com/8-steps-to-implement-paging-library-in-android-d02500f7fffe
+         * source description   :: complete tutorial for paging
          *  */
 
 
@@ -66,8 +66,10 @@ public class MainActivity extends AppCompatActivity {
         my_recycler_view.setHasFixedSize(true);
 
         // adapter
-        adapter = new MoviesAdapter(MainActivity.this, articleArrayList);
-        my_recycler_view.setAdapter(adapter);
+       /* adapter = new MoviesAdapter(MainActivity.this, articleArrayList);
+        my_recycler_view.setAdapter(adapter);*/
+
+        adapter = new MovieAdapter(MainActivity.this);
 
         // View Model
         articleViewModel = ViewModelProviders.of(this).get(ArticleViewModel.class);
@@ -79,12 +81,14 @@ public class MainActivity extends AppCompatActivity {
      * @param @null
      */
     private void getMovieArticles() {
-        articleViewModel.getArticleResponseLiveData().observe(this, articleResponse -> {
-            if (articleResponse != null) {
-                List<Article> articles = articleResponse.getArticles();
-                articleArrayList.addAll(articles);
-                adapter.notifyDataSetChanged();
-            }
+
+        articleViewModel.itemPagedList.observe(this, articles -> {
+            Log.d(TAG, "articles :: " + articles);
+            //in case of any changes
+            //submitting the items to adapter
+            adapter.submitList(articles);
         });
+
+        my_recycler_view.setAdapter(adapter);
     }
 }

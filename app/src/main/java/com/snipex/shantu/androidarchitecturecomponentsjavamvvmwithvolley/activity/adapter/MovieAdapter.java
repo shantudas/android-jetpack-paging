@@ -20,7 +20,7 @@ public class MovieAdapter extends PagedListAdapter<Article, MovieAdapter.ViewHol
 
     private Context mCtx;
 
-    MovieAdapter(Context mCtx) {
+    public MovieAdapter(Context mCtx) {
         super(DIFF_CALLBACK);
         this.mCtx = mCtx;
     }
