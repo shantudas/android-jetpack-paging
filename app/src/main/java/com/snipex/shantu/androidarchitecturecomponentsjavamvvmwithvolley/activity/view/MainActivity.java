@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.R;
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.adapter.MovieAdapter;
-import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.model.Article;
 import com.snipex.shantu.androidarchitecturecomponentsjavamvvmwithvolley.activity.view_model.ArticleViewModel;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView my_recycler_view;
     private LinearLayoutManager layoutManager;
     private MovieAdapter adapter;
-    private ArrayList<Article> articleArrayList = new ArrayList<>();
     ArticleViewModel articleViewModel;
 
 
@@ -66,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
         my_recycler_view.setHasFixedSize(true);
 
         // adapter
-       /* adapter = new MoviesAdapter(MainActivity.this, articleArrayList);
-        my_recycler_view.setAdapter(adapter);*/
-
         adapter = new MovieAdapter(MainActivity.this);
 
         // View Model
@@ -83,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
     private void getMovieArticles() {
 
         articleViewModel.itemPagedList.observe(this, articles -> {
-            Log.d(TAG, "articles :: " + articles);
-            //in case of any changes
-            //submitting the items to adapter
+
+            //submitting the articles to adapter
             adapter.submitList(articles);
         });
 
+        // finally setting adapter to the recyclerView
         my_recycler_view.setAdapter(adapter);
     }
 }

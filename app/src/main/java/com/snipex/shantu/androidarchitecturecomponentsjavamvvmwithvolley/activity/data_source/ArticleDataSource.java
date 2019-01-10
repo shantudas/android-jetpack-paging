@@ -17,9 +17,12 @@ public class ArticleDataSource extends PageKeyedDataSource<Integer, Article> {
 
     private static final String TAG = ArticleDataSource.class.getSimpleName();
 
-
-
-
+    /*
+     * This method is responsible to load the data initially
+     * when app screen is launched for the first time.
+     * We are fetching the first page data from the api
+     * and passing it via the callback method to the UI.
+     */
     @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull LoadInitialCallback<Integer, Article> callback) {
         Log.d(TAG, "loadInitial called");
@@ -32,15 +35,12 @@ public class ArticleDataSource extends PageKeyedDataSource<Integer, Article> {
                         Log.d(TAG + " response :: ", String.valueOf(response));
                         if (response.body() != null) {
                             callback.onResult(response.body().getArticles(), null, ArticleMovieConstants.FIRST_PAGE + 1);
-
-                            Log.d(TAG, "articles size on load:: " + response.body().getArticles().size());
-
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ArticleResponse> call, Throwable t) {
-
+                        Log.d(TAG, String.valueOf(t));
                     }
                 });
     }
@@ -49,6 +49,14 @@ public class ArticleDataSource extends PageKeyedDataSource<Integer, Article> {
     public void loadBefore(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Article> callback) {
 
     }
+
+    /*
+     * This method it is responsible for the subsequent call to load the data page wise when user scroll
+     * This method is executed in the background thread
+     * We are fetching the next page data from the api
+     * and passing it via the callback method to the UI.
+     * The "params.key" variable will have the updated value.
+     */
 
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Article> callback) {
@@ -61,9 +69,11 @@ public class ArticleDataSource extends PageKeyedDataSource<Integer, Article> {
                         Log.d(TAG + " response :: ", String.valueOf(response));
                         if (response.body() != null) {
 
-                            Log.d(TAG,"params Key :: "+params.key+" params load size - "+params.requestedLoadSize);
+                            Log.d(TAG, "params Key :: " + params.key + " params load size - " + params.requestedLoadSize);
+
+                            //if the response getTotalResults is not null then
                             //incrementing the next page number
-                            Integer key =  params.key + 1;
+                            Integer key = (params.key == response.body().getTotalResults()) ? null : params.key + 1;
 
                             callback.onResult(response.body().getArticles(), key);
                         }
@@ -71,7 +81,7 @@ public class ArticleDataSource extends PageKeyedDataSource<Integer, Article> {
 
                     @Override
                     public void onFailure(Call<ArticleResponse> call, Throwable t) {
-
+                        Log.d(TAG, String.valueOf(t));
                     }
                 });
     }
