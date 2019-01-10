@@ -9,6 +9,9 @@ In this project we will build a movies article app using android architecture co
 * Show list of movies article 
 * Endless scroll ( showing 10 articles per page )
 
+## App Demo
+![alt-text](https://github.com/shantudas/Android-Architecture-Components-Paging-With-Java/blob/master/images/AAC-MVVM-PAGING-RETROFIT-JAVA-APP-DEMO.gif)
+
 ## Library Used
 * [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/)
 * [Live Data](https://developer.android.com/topic/libraries/architecture/livedata)
