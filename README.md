@@ -1,4 +1,4 @@
-# Android-Architecture-Components-Paging-With-Java
+# Movie Articles
 An example of using paging library for showing endless movies articles list
 
 ## About This Project
